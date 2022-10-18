@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 
-function HeroPage() {
+function Rooms() {
     return (
         <Grid
             container
@@ -28,4 +28,4 @@ function HeroPage() {
     );
 }
 
-export default HeroPage;
+export default Rooms;

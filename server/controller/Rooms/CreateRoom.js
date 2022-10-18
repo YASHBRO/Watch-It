@@ -1,11 +1,11 @@
 const Rooms = require("../../models/Rooms");
 
-async function NewUser(req, res, next) {
+async function CreateRoom(req, res, next) {
     const {
         body: { hostId, guestControl = false, privateRoom = false },
     } = req;
 
-    if (!hostId || !guestControl) {
+    if (!hostId) {
         res.status(300).json({ message: "Params no fulfilled" });
         return;
     }
@@ -30,4 +30,4 @@ async function NewUser(req, res, next) {
     next();
 }
 
-module.exports = NewUser;
+module.exports = CreateRoom;

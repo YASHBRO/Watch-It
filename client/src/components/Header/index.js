@@ -11,10 +11,12 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = [
+    { label: "Rooms", href: "/rooms" },
+    { label: "About", href: "/about" },
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
@@ -37,28 +39,25 @@ const ResponsiveAppBar = () => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="sticky" sx={{ zIndex: 1000 }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <AdbIcon
-                        sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-                    />
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
                         href="/"
                         sx={{
-                            mr: 2,
                             display: { xs: "none", md: "flex" },
                             fontFamily: "monospace",
                             fontWeight: 700,
                             letterSpacing: ".3rem",
                             color: "inherit",
                             textDecoration: "none",
+                            textAlign: "center",
                         }}
                     >
-                        LOGO
+                        WATCH IT
                     </Typography>
 
                     <Box
@@ -97,19 +96,20 @@ const ResponsiveAppBar = () => {
                         >
                             {pages.map((page) => (
                                 <MenuItem
-                                    key={page}
+                                    key={page.href}
                                     onClick={handleCloseNavMenu}
                                 >
-                                    <Typography textAlign="center">
-                                        {page}
+                                    <Typography
+                                        component="a"
+                                        href={page.href}
+                                        textAlign="center"
+                                    >
+                                        {page.label}
                                     </Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon
-                        sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
-                    />
                     <Typography
                         variant="h5"
                         noWrap
@@ -126,21 +126,24 @@ const ResponsiveAppBar = () => {
                             textDecoration: "none",
                         }}
                     >
-                        LOGO
+                        Watch It
                     </Typography>
                     <Box
                         sx={{
-                            flexGrow: 1,
+                            ml: "auto",
+                            mr: 2,
                             display: { xs: "none", md: "flex" },
                         }}
                     >
                         {pages.map((page) => (
                             <Button
-                                key={page}
+                                key={page.href}
+                                component="a"
+                                href={page.href}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: "white", display: "block" }}
                             >
-                                {page}
+                                {page.label}
                             </Button>
                         ))}
                     </Box>
