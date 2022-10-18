@@ -1,6 +1,10 @@
 const { default: mongoose } = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        default: "User",
+    },
     email: {
         type: String,
         required: true,
@@ -12,12 +16,12 @@ const UserSchema = new mongoose.Schema({
     },
     hostOfRoom: {
         type: [mongoose.SchemaTypes.ObjectId],
-        ref: "Room",
+        ref: "Rooms",
     },
     guestOfRoom: {
         type: [mongoose.SchemaTypes.ObjectId],
-        ref: "Room",
+        ref: "Rooms",
     },
 });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Users", UserSchema);

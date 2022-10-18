@@ -1,10 +1,11 @@
 const { default: mongoose, mongo } = require("mongoose");
-const { v4: uuidv4 } = require("uuid");
-uuidv4();
+const generate = require("nanoid/generate");
+
+const alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 const getCurrentTime = () => Date.now();
 
-const generateRandomCode = () => uuidv4();
+const generateRandomCode = () => generate(alphabet, 10);
 
 const RoomSchema = new mongoose.Schema({
     createdAt: {
@@ -20,12 +21,12 @@ const RoomSchema = new mongoose.Schema({
     },
     host: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "User",
+        ref: "Users",
         required: true,
     },
     guest: {
         type: [mongoose.SchemaType.ObjectId],
-        ref: "User",
+        ref: "Users",
     },
     currentVideo: {
         type: String,
@@ -40,4 +41,4 @@ const RoomSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("Room", RoomSchema);
+module.exports = mongoose.model("Rooms", RoomSchema);
