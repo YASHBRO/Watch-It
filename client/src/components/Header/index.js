@@ -16,10 +16,11 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 const pages = [
     { label: "Rooms", href: "/rooms" },
     { label: "About", href: "/about" },
+    { label: "Login", href: "/login" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const ResponsiveAppBar = () => {
+const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -39,7 +40,7 @@ const ResponsiveAppBar = () => {
     };
 
     return (
-        <AppBar position="sticky" sx={{ zIndex: 1000 }}>
+        <AppBar id="AppHeader" position="fixed" sx={{ zIndex: 1000 }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -192,4 +193,4 @@ const ResponsiveAppBar = () => {
         </AppBar>
     );
 };
-export default ResponsiveAppBar;
+export default Header;
