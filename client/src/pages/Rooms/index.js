@@ -12,7 +12,7 @@ function Rooms() {
             alignItems="center"
             alignContent="center"
             wrap="wrap"
-            sx={{ height: "100vh" }}
+            sx={{ height: "100%" }}
         >
             <Grid item>
                 <Button variant="contained" color="primary">
