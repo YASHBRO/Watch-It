@@ -6,12 +6,11 @@ import GetAllRoomsApi from "./api";
 const homeBgVideo = require("../../assets/videos/homeBackground.mp4");
 
 function Home() {
-    const [allRoom, setAllRoom] = useState([]);
+    const [allRooms, setAllRooms] = useState([]);
 
     useEffect(() => {
-        console.log("yd init");
         GetAllRoomsApi().then((res) => {
-            console.log("yd", res);
+            setAllRooms(res.data);
         });
     }, []);
 

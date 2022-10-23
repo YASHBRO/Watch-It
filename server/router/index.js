@@ -5,6 +5,9 @@ router.get("/", function (req, res) {
     res.send("Hello World");
 });
 
+const LoginUser = require("../controller/Users/LoginUser");
+router.post("/login", LoginUser);
+
 const NewUser = require("../controller/Users/NewUser");
 router.post("/create-user", NewUser);
 
