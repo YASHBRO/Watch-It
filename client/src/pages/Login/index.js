@@ -14,9 +14,10 @@ function Login() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (CheckLogIn()) {
+        const userId = CheckLogIn();
+        if (userId) {
+            user.setUserId(userId);
             user.setIsLoggedIn(true);
-            console.log("yd", user);
             navigate("/");
         }
     }, [navigate, user]);

@@ -8,9 +8,11 @@ function PrivateRoute() {
     const user = useContext(UserContext);
 
     useEffect(() => {
-        if (!CheckLogIn()) {
+        const userId = CheckLogIn();
+        if (!userId) {
             user.setIsLoggedIn(false);
-            console.log("yd", user);
+        } else {
+            user.setUserId(userId);
         }
     }, [user]);
 

@@ -13,12 +13,16 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
+import "./HeaderStyle.css";
+
 const pages = [
     { label: "Rooms", href: "/rooms" },
     { label: "About", href: "/about" },
     { label: "Login", href: "/login" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
+const watchItLogo = require("../../assets/image/logo.png");
 
 const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -56,14 +60,16 @@ const Header = () => {
                             color: "inherit",
                             textDecoration: "none",
                             textAlign: "center",
+                            justifyContent: "center",
+                            alignItems: "center",
                         }}
                     >
+                        <img src={watchItLogo} alt="logo" className="logo" />
                         WATCH IT
                     </Typography>
 
                     <Box
                         sx={{
-                            flexGrow: 1,
                             display: { xs: "flex", md: "none" },
                         }}
                     >
@@ -125,8 +131,11 @@ const Header = () => {
                             letterSpacing: ".3rem",
                             color: "inherit",
                             textDecoration: "none",
+                            justifyContent: "center",
+                            alignItems: "center",
                         }}
                     >
+                        <img src={watchItLogo} alt="logo" className="logo" />
                         Watch It
                     </Typography>
                     <Box
