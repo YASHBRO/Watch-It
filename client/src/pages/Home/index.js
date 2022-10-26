@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import "./HomeStyle.css";
 import GetAllRoomsApi from "./api";
+import HomeLogo from "../../components/MainLogo";
+import RoomList from "./components/RoomList";
 
 const homeBgVideo = require("../../assets/videos/homeBackground.mp4");
 
@@ -10,7 +12,7 @@ function Home() {
 
     useEffect(() => {
         GetAllRoomsApi().then((res) => {
-            setAllRooms(res.data);
+            setAllRooms(res.data.result);
         });
     }, []);
 
@@ -28,6 +30,15 @@ function Home() {
     return (
         <Box>
             <BackgroundVideo />
+            <Box
+                sx={{
+                    width: "clamp(400px,50vw,800px)",
+                    mx: "auto",
+                }}
+            >
+                <HomeLogo />
+                <RoomList allRooms={allRooms} />
+            </Box>
         </Box>
     );
 }
