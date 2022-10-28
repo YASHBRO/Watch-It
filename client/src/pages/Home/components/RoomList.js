@@ -1,29 +1,13 @@
 import { Paper, Grid } from "@mui/material";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 function RoomList(props) {
     const { allRooms = [] } = props;
 
-    const [roomsCover, setRoomsCover] = useState([]);
-
-    useEffect(() => {
-        if (allRooms.length < 1) return;
-        axios
-            .get("https://picsum.photos/v2/list", {
-                params: { limit: allRooms.length },
-            })
-            .then((res) => {
-                setRoomsCover(res.data);
-            });
-    }, [allRooms]);
-
-    console.log("yd", allRooms);
-
     const RoomCard = ({ room, index }) => (
         <Paper elevation={3}>
             <img
-                src={`${roomsCover[index]?.download_url}`}
+                src={`https://picsum.photos/200?random=${index}`}
                 alt="cover"
                 width="100px"
             />
@@ -33,7 +17,13 @@ function RoomList(props) {
     );
 
     return (
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
+        <Grid
+            container
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+            sx={{ width: "80%" }}
+        >
             {allRooms.map((room, ind) => (
                 <Grid item key={ind} xs={4}>
                     <RoomCard room={room} index={ind} />
