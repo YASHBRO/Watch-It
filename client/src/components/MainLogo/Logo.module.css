@@ -1,6 +1,6 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"); */
 
 .wrapper {
     display: flex;
@@ -15,19 +15,19 @@
 }
 
 .logoText {
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    /* font-family: "Rubik Glitch", cursive; */
+    /* font-family: "Montserrat", sans-serif;
+    font-weight: bold; */
+    font-family: "Rubik Glitch", cursive;
 
     font-size: clamp(2rem, 6vw, 6rem);
 
-    /* background: #ff0000;
+    background: #ff0000;
     background: linear-gradient(0deg, #ff0000 -20%, #ff8888 80%);
     background: -webkit-linear-gradient(0deg, #ff0000 -20%, #ff8888 80%);
     background: -moz-linear-gradient(0deg, #ff0000 -20%, #ff8888 80%);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    -webkit-text-fill-color: transparent;
 }
 
 .logoImg {
@@ -35,7 +35,7 @@
     /* aspect-ratio: 1; */
 }
 
-.leftText {
+/* .leftText {
     color: white;
 }
 
@@ -52,4 +52,4 @@
     inset: 0;
     z-index: -5;
     border-radius: 0.75rem;
-}
+} */
