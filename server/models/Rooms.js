@@ -30,6 +30,7 @@ const RoomSchema = new mongoose.Schema({
     },
     currentVideo: {
         type: String,
+        default: "",
     },
     guestControl: {
         type: Boolean,

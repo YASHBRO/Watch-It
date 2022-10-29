@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
 
-/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 .wrapper {
     display: flex;
@@ -15,12 +15,12 @@
 }
 
 .logoText {
-    /* font-family: "Montserrat", sans-serif;
-    font-weight: bold; */
-    font-family: "Rubik Glitch", cursive;
-
     font-size: clamp(2rem, 6vw, 6rem);
+}
 
+/* Comment for pHub effect */
+.logoText {
+    font-family: "Rubik Glitch", cursive;
     background: #ff0000;
     background: linear-gradient(0deg, #ff0000 -20%, #ff8888 80%);
     background: -webkit-linear-gradient(0deg, #ff0000 -20%, #ff8888 80%);
@@ -30,19 +30,26 @@
     -webkit-text-fill-color: transparent;
 }
 
-.logoImg {
-    width: 8rem;
-    /* aspect-ratio: 1; */
+/* Comment for normal all below this */
+/* .logoText {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
 }
 
-/* .leftText {
-    color: white;
+.logoImg {
+    width: 8rem;
+    aspect-ratio: 1;
+}
+
+.leftText {
+    color: #f0f0f0;
 }
 
 .rightText {
     padding-inline: 1rem;
     position: relative;
     z-index: 5;
+    color: #0f0f0f;
 }
 
 .rightText::after {

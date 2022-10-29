@@ -1,31 +1,44 @@
-import { Paper, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React from "react";
+
+import Styles from "./styles.module.css";
 
 function RoomList(props) {
     const { allRooms = [] } = props;
 
     const RoomCard = ({ room, index }) => (
-        <Paper elevation={3}>
+        <Box className={[Styles.roomWrapper].join(" ")}>
             <img
-                src={`https://picsum.photos/200?random=${index}`}
+                src={`https://picsum.photos/800/400?random=${index}`}
                 alt="cover"
-                width="100px"
+                className={[Styles.roomImg].join(" ")}
             />
-            {room.host.name}
-            {room.roomCode}
-        </Paper>
+            <div className={[Styles.roomText].join(" ")}>
+                <div className={[Styles.roomUser].join(" ")}>
+                    {room.host.name}
+                </div>
+                <div>
+                    <span className={[Styles.roomTextLables].join(" ")}>
+                        Room code :{" "}
+                    </span>
+                    {room.roomCode}
+                </div>
+            </div>
+        </Box>
     );
 
     return (
         <Grid
             container
-            spacing={2}
+            spacing={3}
             justifyContent="center"
             alignItems="center"
-            sx={{ width: "80%" }}
+            alignContent="center"
+            xs={11}
+            sx={{ mx: "auto", my: 1 }}
         >
             {allRooms.map((room, ind) => (
-                <Grid item key={ind} xs={4}>
+                <Grid item key={ind} xl={3} md={4} sm={6} xs={12}>
                     <RoomCard room={room} index={ind} />
                 </Grid>
             ))}
