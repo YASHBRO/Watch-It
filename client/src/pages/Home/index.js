@@ -32,8 +32,8 @@ function Home() {
             <BackgroundVideo />
             <Box
                 sx={{
-                    width: "clamp(400px,50vw,800px)",
                     mx: "auto",
+                    pt: 1,
                 }}
             >
                 <HomeLogo />
