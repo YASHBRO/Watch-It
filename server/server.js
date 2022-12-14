@@ -1,19 +1,29 @@
-let express = require("express");
-let app = express();
-
-let cors = require("cors");
-
+const express = require("express");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+const cors = require("cors");
 const bodyParser = require("body-parser");
-
 const mongoose = require("mongoose");
-
-let dotenv = require("dotenv");
-dotenv.config();
-
+const dotenv = require("dotenv");
 const logger = require("./middleware/Logger");
 const CustomRouter = require("./router");
 
-let port = process.env.PORT || 3000;
+dotenv.config();
+
+const app = express();
+const httpServer = createServer(app);
+
+const port = process.env.PORT || 3000;
+
+const io = new Server(httpServer, {
+    cors: {
+        origin: "http://localhost:5000",
+    },
+});
+
+io.on("connection", (socket) => {
+    console.log("socket conneted", socket.id);
+});
 
 const connectToMongoDB = async () => {
     try {
@@ -34,7 +44,7 @@ app.use(logger);
 
 app.use(CustomRouter);
 
-app.listen(port, function () {
+httpServer.listen(port, function () {
     connectToMongoDB();
     console.log(`App is listening to port ${port}`);
 });

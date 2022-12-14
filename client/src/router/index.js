@@ -4,6 +4,7 @@ import MainLayout from "../layout/MainLayout";
 import About from "../pages/About";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import Room from "../pages/Room";
 import Rooms from "../pages/Rooms";
 import PrivateRoute from "./PrivateRoute";
 
@@ -16,6 +17,7 @@ function AppRouter() {
                     <Route index element={<Home />} />
                     <Route path="about" element={<About />} />
                     <Route path="rooms" element={<Rooms />} />
+                    <Route path="room/:roomCode" element={<Room />} />
                 </Route>
             </Route>
         </Routes>

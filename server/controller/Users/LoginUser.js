@@ -31,6 +31,7 @@ async function LoginUser(req, res, next) {
     }
 
     next();
+    return;
 }
 
 module.exports = LoginUser;

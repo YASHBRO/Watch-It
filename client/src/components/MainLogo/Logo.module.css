@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
@@ -20,25 +20,24 @@
 
 /* Comment for pHub effect */
 .logoText {
-    font-family: "Rubik Glitch", cursive;
-    background: #ff0000;
-    background: linear-gradient(0deg, #ff0000 -20%, #ff8888 80%);
-    background: -webkit-linear-gradient(0deg, #ff0000 -20%, #ff8888 80%);
-    background: -moz-linear-gradient(0deg, #ff0000 -20%, #ff8888 80%);
+    font-family: "Bungee", cursive;
+
+    color: #760307;
+    background-image: -webkit-linear-gradient(135deg, #760307 0%, #ef2b6b 78%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.logoImg {
+    width: 8rem;
+    aspect-ratio: 1;
 }
 
 /* Comment for normal all below this */
 /* .logoText {
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
-}
-
-.logoImg {
-    width: 8rem;
-    aspect-ratio: 1;
 }
 
 .leftText {

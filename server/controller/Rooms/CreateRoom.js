@@ -1,20 +1,26 @@
 const Rooms = require("../../models/Rooms");
+const Users = require("../../models/Users");
 
 async function CreateRoom(req, res, next) {
     const {
-        body: { hostId, guestControl = false, privateRoom = false },
+        userId,
+        body: { guestControl = false, privateRoom = false },
     } = req;
 
-    if (!hostId) {
+    if (!userId) {
         res.status(300).json({ message: "Params no fulfilled" });
         return;
     }
 
     const newRoom = await Rooms.create({
-        host: hostId,
-        guestControl: guestControl === "true",
-        privateRoom: privateRoom === "true",
+        host: userId,
+        guestControl: guestControl,
+        privateRoom: privateRoom,
     });
+
+    const user = await Users.findById(userId);
+    user.hostOfRoom.addToSet(newRoom._id);
+    await user.save();
 
     res.status(201).json({
         message: "Room created",

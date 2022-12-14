@@ -1,13 +1,21 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import Styles from "./styles.module.css";
 
 function RoomList(props) {
     const { allRooms = [] } = props;
 
+    const navigate = useNavigate();
+
     const RoomCard = ({ room, index }) => (
-        <Box className={[Styles.roomWrapper].join(" ")}>
+        <Box
+            className={[Styles.roomWrapper].join(" ")}
+            onClick={() => {
+                navigate(`/room/${room.roomCode}`);
+            }}
+        >
             <img
                 src={`https://picsum.photos/800/400?random=${index}`}
                 alt="cover"

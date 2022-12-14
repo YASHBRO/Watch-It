@@ -14,9 +14,9 @@ function Login() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const userId = CheckLogIn();
-        if (userId) {
-            user.setUserId(userId);
+        const localUserId = CheckLogIn();
+        if (localUserId) {
+            user.setUserId(localUserId);
             user.setIsLoggedIn(true);
             navigate("/");
         }

@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import { Link } from "react-router-dom";
 
 import "./HeaderStyle.css";
 
@@ -50,8 +51,8 @@ const Header = () => {
                     <Typography
                         variant="h6"
                         noWrap
-                        component="a"
-                        href="/"
+                        component={Link}
+                        to="/"
                         sx={{
                             display: { xs: "none", md: "flex" },
                             fontFamily: "monospace",
@@ -102,13 +103,10 @@ const Header = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem
-                                    key={page.href}
-                                    onClick={handleCloseNavMenu}
-                                >
+                                <MenuItem key={page.href}>
                                     <Typography
-                                        component="a"
-                                        href={page.href}
+                                        component={Link}
+                                        to={page.href}
                                         textAlign="center"
                                     >
                                         {page.label}
@@ -120,8 +118,8 @@ const Header = () => {
                     <Typography
                         variant="h5"
                         noWrap
-                        component="a"
-                        href=""
+                        component={Link}
+                        to="/"
                         sx={{
                             mr: 2,
                             display: { xs: "flex", md: "none" },
@@ -148,9 +146,8 @@ const Header = () => {
                         {pages.map((page) => (
                             <Button
                                 key={page.href}
-                                component="a"
-                                href={page.href}
-                                onClick={handleCloseNavMenu}
+                                component={Link}
+                                to={page.href}
                                 sx={{ my: 2, color: "white", display: "block" }}
                             >
                                 {page.label}

@@ -1,7 +1,7 @@
 const CheckLogIn = () => {
-    const userId = localStorage.getItem("UserId");
-    if (userId) {
-        return userId;
+    const localUserId = localStorage.getItem("UserId");
+    if (localUserId) {
+        return localUserId;
     } else {
         return false;
     }

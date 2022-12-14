@@ -1,20 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
+const userRouter = require("./UsersRoute");
+const roomRouter = require("./RoomsRoute");
+
 router.get("/", function (req, res) {
     res.send("Hello World");
 });
 
-const LoginUser = require("../controller/Users/LoginUser");
-router.post("/login", LoginUser);
+router.use(userRouter);
 
-const NewUser = require("../controller/Users/NewUser");
-router.post("/create-user", NewUser);
-
-const CreateRoom = require("../controller/Rooms/CreateRoom");
-router.post("/create-room", CreateRoom);
-
-const GetAllRooms = require("../controller/Rooms/GetAllRooms");
-router.get("/get-all-rooms", GetAllRooms);
+router.use(roomRouter);
 
 module.exports = router;
